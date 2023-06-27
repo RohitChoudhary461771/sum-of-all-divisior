@@ -1,0 +1,34 @@
+👉Example :
+  Input:
+  N = 5
+  Output:
+  21
+  Explanation:
+  F(1) = 1
+  F(2) = 1 + 2 = 3  //divisor of 2 is 1 and 2 so we have to get their sum i.e 3
+  F(3) = 1 + 3 = 4  //divisor of 3 is 1 and 3 so we have to get their sum i.e 4
+  F(4) = 1 + 2 + 4 = 7  //divisor of 4 is 1 ,2 and 4 so we have to get their sum i.e 7
+  F(5) = 1 + 5 = 6      //similarly.
+  
+  ans = F(1) + F(2) + F(3) + F(4) + F(5) // inlast we return the sum of divisior of each dividend.
+      = 1 + 3 + 4 + 7 + 6
+      = 21 //output .
+
+👉Constraint 1<=N<=10^6
+
+👉Optimal T.C required O(N).
+        S.C required O(1).
+👉Brute   T.C O(N^2).
+-----------------------------------------------------------------------------------------------------
+class Solution
+{
+public:
+    long long sumOfDivisors(int N)
+    {
+       long long sum=0;
+       for(int i=1;i<=N;i++){
+           sum+=i*(N/i);
+       }
+       return sum;
+    }
+};
